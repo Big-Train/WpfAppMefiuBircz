@@ -1,0 +1,88 @@
+﻿<Window x:Class="WpfAppMefiuBircz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppMefiuBircz"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MaxHeight="500" ResizeMode="NoResize" MinWidth="800" MaxWidth="900" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <RadioButton x:Name="j" Foreground="Red" Content="jeden" ></RadioButton>
+            <RadioButton x:Name="d" Foreground="Green" Content="dwa" ></RadioButton>
+            <RadioButton x:Name="o" Foreground="Blue" Content="trz" ></RadioButton>
+            <TextBlock FontSize="28" VerticalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Blue"></Setter>
+                        <Setter Property="Text" Value="nic" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=j, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="jeden" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ElementName=d, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="dwa" />
+                                <Setter Property="Foreground" Value="Green" />
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ElementName=o, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="trz" />
+                                <Setter Property="Foreground" Value="blue" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1">
+            <RadioButton x:Name="jeden" Foreground="red" Content="jeden" Checked="jeden_Checked" ></RadioButton>
+            <RadioButton x:Name="dwa" Foreground="Green" Content="dwa" Checked="dwa_Checked" ></RadioButton>
+            <RadioButton x:Name="trzy" Foreground="Blue" Content="trz" Checked="trzy_Checked" ></RadioButton>
+            <TextBlock Text="nic" Foreground="Blue" FontSize="28" VerticalAlignment="Center" x:Name="teksikxd">
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            
+            <ToggleButton x:Name="zmien" Content="ZmenObrazek"></ToggleButton>
+            
+            <Image>
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Source" Value="chipi.jpg"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=zmien, Path=IsChecked}" Value="True">
+                                <Setter Property="Source" Value="zdj.jpg"></Setter>
+                            </DataTrigger>
+
+
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+           
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <Button x:Name="guzikens" Content="ZmenObrazek" Click="guzikens_Checked"></Button>
+
+            <Image x:Name="obrazekxd" Source="chipi.jpg">
+            </Image>
+
+        </StackPanel>
+    </Grid>
+</Window>
